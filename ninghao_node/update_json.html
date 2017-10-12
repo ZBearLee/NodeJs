@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const stooge={
+            'first-name':'Jerome',
+            'last-name':'Howard',
+        }
+        stooge['nikename']='Lester';
+        const flight={equitment:{
+            model:'梅赛德-S'
+        }}
+        console.log(stooge);
+        flight.equitment.model='奥迪';
+        console.log(flight);
+        /*变量在定义时并没有类型，JS是弱类型语言，
+        同时也是动态语言  类型定义完全取决于值
+        六种基本类型
+        字符串 数字 布尔值  undefined  null
+        Object(array,function{}）
+        const 声明 值的类型和常量的类型锁定
+        简单类型，值不能变*/
+        //flight='fdfd';
+
+        /*在js中，对象的赋值不是copy,只是多了个引用*/
+        let x=stooge;
+        x.hobbies=['singing','fishing'];
+      /*  console.log(x);
+        console.log(stooge);*/
+        stooge.isMarried=true;
+        console.log(x);
+        console.log(stooge);
+      /*  js 的对象本质是原型链 找到了原型，也就找到了要继承的对象
+      java 父子关系，类似于封建王朝
+      Object是所有对象的鼻祖，所有对象的原型都是Object
+      对象继承
+      @params 根据o对象为原型，构建一个新对象
+      @return 新对象
+      */
+      Object.create=function(o){
+          //通过空的构造函数
+         var F=function(){}
+          F.prototype=o;
+        //实例化的过程，就涉及到空间分配
+        return new F();
+         }
+         var new_stooge=Object.create(stooge);
+         new_stooge.beCook=true;
+         console.log(new_stooge);
+         console.log(stooge);
+     
+    </script>
+</body>
+</html>
