@@ -1,0 +1,4 @@
+'use strict';
+
+var str = 'hello,world';
+var str2 = str + '\u60A8\u597D\uFF01';
